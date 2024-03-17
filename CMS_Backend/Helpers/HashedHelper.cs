@@ -11,12 +11,7 @@ namespace CMS_Backend.Helpers
         {
             // Generate a random salt
             byte[] salt = new byte[128 / 8];
-            using (var rng = RandomNumberGenerator.Create())
-            {
-                rng.GetBytes(salt);
-            }
 
-            // Hash the password with the salt using PBKDF2
             string hashedPassword = Convert.ToBase64String(KeyDerivation.Pbkdf2(
                 password: password,
                 salt: salt,

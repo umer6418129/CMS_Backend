@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\aptech asignment\\dotNet\\CMS_Backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\helpers\\hashedhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\helpers\\hashedhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\models\\mycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\models\\mycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\helpers\\hashedhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\helpers\\hashedhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "HashedHelper.cs",
               "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Helpers\\HashedHelper.cs",
               "RelativeDocumentMoniker": "CMS_Backend\\Helpers\\HashedHelper.cs",
               "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Helpers\\HashedHelper.cs",
               "RelativeToolTip": "CMS_Backend\\Helpers\\HashedHelper.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAwAAAAsAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABgAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-17T09:22:39.884Z",
+              "WhenOpened": "2024-03-17T10:30:47.396Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Program.cs",
-              "RelativeDocumentMoniker": "CMS_Backend\\Program.cs",
-              "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Program.cs",
-              "RelativeToolTip": "CMS_Backend\\Program.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAlwBkAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-17T09:04:58.292Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "MyContext.cs",
               "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Models\\MyContext.cs",
               "RelativeDocumentMoniker": "CMS_Backend\\Models\\MyContext.cs",
               "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Models\\MyContext.cs",
               "RelativeToolTip": "CMS_Backend\\Models\\MyContext.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAAtwDEAAAANAAAA",
+              "ViewState": "AQIAACgAAAAAAAAAAAAcwDIAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-17T09:00:58.798Z",
+              "WhenOpened": "2024-03-17T10:32:47.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "CMS_Backend\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "CMS_Backend\\Controllers\\AuthController.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAgwCkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-17T09:54:06.706Z",
               "EditorCaption": ""
             }
           ]

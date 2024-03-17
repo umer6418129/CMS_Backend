@@ -55,7 +55,7 @@ namespace CMS_Backend.Models
                 if (admin != null && firstCollege != null)
                 {
                     var adminEmail = $"admin{firstCollege.id}@example.com";
-                    var password = "12345678";
+                    var password = "admin123";
                     var hashedPassword = HashedHelper.HashPassword(password);
                     var user = new User[]
                     {
