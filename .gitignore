@@ -1,1 +1,44 @@
+# .NET Core
+bin/
+obj/
+
+# Visual Studio files
+.vscode/
+*.vscode/
+*.sln.cache
+*.suo
+*.user
+*.userprefs
+*_i.c
+*_p.c
+*.pidb
+*.log
+*.vspscc
 .vs/
+
+# Rider files
+.idea/
+*.sln.iml
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Package files
+*.nupkg
+*.pfx
+*.snk
+
+# Package directories
+packages/
+*.idea/
+
+# Others
+*.Cache
+logs/
+*.log
+*.dbmdl
+*.jfm

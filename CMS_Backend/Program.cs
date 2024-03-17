@@ -1,5 +1,9 @@
-var builder = WebApplication.CreateBuilder(args);
+using CMS_Backend.Models;
+using Microsoft.EntityFrameworkCore;
 
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<MyContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DbConfig")));
 // Add services to the container.
 
 builder.Services.AddControllers();
