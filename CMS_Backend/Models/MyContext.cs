@@ -13,6 +13,8 @@ namespace CMS_Backend.Models
         public virtual DbSet<College> Colleges { get; set; }
         public virtual DbSet<UserRoles> user_roles { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Course> Courses{ get; set; }
+        public virtual DbSet<StudentInfo> StudentInfos{ get; set; }
 
 
 

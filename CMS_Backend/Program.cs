@@ -1,3 +1,4 @@
+using CMS_Backend.Middlewares;
 using CMS_Backend.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -36,7 +37,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseMiddleware<CollegeIdMiddleware>();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

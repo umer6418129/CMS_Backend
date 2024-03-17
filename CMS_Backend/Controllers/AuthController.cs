@@ -22,6 +22,8 @@ namespace CMS_Backend.Controllers
         public IActionResult login(LoginRequest login)
         {
             var user = db.Users.FirstOrDefault(x => x.email == login.email);
+            var role = db.user_roles.FirstOrDefault(x => x.id == user.role_id);
+            //var college = user?.College;
             if (user == null)
             {
                 return Ok(new { status = 0, message = "user not found" });
@@ -36,17 +38,20 @@ namespace CMS_Backend.Controllers
                 status = 1,
                 user_details = new
                 {
-                    name = user.name
+                    name = user.name,
+                    college_id = user.collegeId,
+                    role = role,
+
                 }
             });
         }
 
-        
 
-    private bool VerifyPassword(string enteredPassword, string hashedPassword)
-    {
-        var checkPassword = enteredPassword == hashedPassword;
-        return checkPassword;
+
+        private bool VerifyPassword(string enteredPassword, string hashedPassword)
+        {
+            var checkPassword = enteredPassword == hashedPassword;
+            return checkPassword;
+        }
     }
-}
 }

@@ -22,10 +22,10 @@ namespace CMS_Backend.Models
         public int? role_id { get; set; }
 
         [ForeignKey("collegeId ")]
-        public College? College { get; set; } = null;
+        public College? College { get; set; }
         
         [ForeignKey("role_id")]
-        public UserRoles? user_roles { get; set; } = null;
+        public UserRoles? user_roles { get; set; }
 
 
     }
