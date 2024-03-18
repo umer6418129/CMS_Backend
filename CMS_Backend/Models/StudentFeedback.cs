@@ -8,12 +8,12 @@ namespace CMS_Backend.Models
         [Key]
         public int? id { get; set; }
         public int? std_id { get; set; }
-        public int? collegeId { get; set; }
+        //public int? collegeId { get; set; }
         [Column(TypeName = "TEXT")]
         public string? description { get; set; }
 
-        [ForeignKey("collegeId")]
-        public College? College { get; set; }
+        //[ForeignKey("collegeId")]
+        //public College? College { get; set; }
         [ForeignKey("std_id")]
         public User? user { get; set; }
 

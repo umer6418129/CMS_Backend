@@ -13,7 +13,7 @@ namespace CMS_Backend.Models
 
         public int? collegeId { get; set; }
 
-        [ForeignKey("collegeId")]
-        public College? College { get; set; }
+        //[ForeignKey("collegeId")]
+        //public College? College { get; set; }
     }
 }

@@ -39,7 +39,7 @@ namespace CMS_Backend.Controllers
                 user_details = new
                 {
                     name = user.name,
-                    college_id = user.collegeId,
+                    //college_id = user.collegeId,
                     role = role,
 
                 }

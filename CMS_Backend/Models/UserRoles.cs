@@ -11,9 +11,9 @@ namespace CMS_Backend.Models
         [Required]
         public string? name { get; set; }
 
-        public int? CollegeId { get; set; }
+        //public int? CollegeId { get; set; }
 
-        [ForeignKey("CollegeId")]
-        public College? College { get; set; }
+        //[ForeignKey("CollegeId")]
+        //public College? College { get; set; }
     }
 }

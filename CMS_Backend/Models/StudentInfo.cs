@@ -33,12 +33,12 @@ namespace CMS_Backend.Models
         public string? std_permanent_address { get; set; }
 
         public Status addmission_status { get; set; } = Status.Pending;
-        public int? collegeId { get; set; }
+        //public int? collegeId { get; set; }
         public int? user_id { get; set; }
         public int? course_id { get; set; }
 
-        [ForeignKey("collegeId")]
-        public College? College { get; set; }
+        //[ForeignKey("collegeId")]
+        //public College? College { get; set; }
 
         [ForeignKey("user_id")]
         public User? user { get; set; }

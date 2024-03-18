@@ -12,9 +12,9 @@ namespace CMS_Backend.Models
         public string subject { get; set; }
         [Column(TypeName = "TEXT")]
         public string description { get; set; }
-        public int? collegeId { get; set; }
+        //public int? collegeId { get; set; }
 
-        [ForeignKey("collegeId")]
-        public College? College { get; set; }
+        //[ForeignKey("collegeId")]
+        //public College? College { get; set; }
     }
 }
