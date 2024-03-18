@@ -45,7 +45,5 @@ namespace CMS_Backend.Models
 
         [ForeignKey("course_id")]
         public Course? course { get; set; }
-
-
     }
 }

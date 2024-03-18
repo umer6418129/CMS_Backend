@@ -20,6 +20,7 @@ namespace CMS_Backend.Models
         public virtual DbSet<StudentFeedback> Feedbacks{ get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<FacultyInfo> FacultyInfos{ get; set; }
+        public virtual DbSet<Facilities> Facilities{ get; set; }
 
 
 
