@@ -18,6 +18,8 @@ namespace CMS_Backend.Models
         public virtual DbSet<CollegeFaciliteis> CollegeFaciliteis{ get; set; }
         public virtual DbSet<ContactUs> ContactUs{ get; set; }
         public virtual DbSet<StudentFeedback> Feedbacks{ get; set; }
+        public virtual DbSet<Department> Departments { get; set; }
+        public virtual DbSet<FacultyInfo> FacultyInfos{ get; set; }
 
 
 
@@ -47,6 +49,7 @@ namespace CMS_Backend.Models
                     {
                         new UserRoles { name = "Admin"},
                         new UserRoles { name = "Student" },
+                        new UserRoles { name = "Faculty" },
                     };
 
                     user_roles.AddRange(roles);
