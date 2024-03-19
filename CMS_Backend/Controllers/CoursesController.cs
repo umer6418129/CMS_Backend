@@ -1,0 +1,52 @@
+﻿using CMS_Backend.Models;
+using CMS_Backend.Requests;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace CMS_Backend.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CoursesController : ControllerBase
+    {
+        public MyContext db { get; set; }
+        public CoursesController(MyContext context)
+        {
+            db = context;
+        }
+
+        [HttpPost]
+        public IActionResult createCourse(CourseRequest request)
+        {
+            IActionResult validationResponse = validation(request);
+            if (validationResponse != null)
+            {
+                return validationResponse;
+            }
+            var course = new Course
+            {
+                course_name = request.course_name
+            };
+            db.Courses.Add(course);
+            db.SaveChanges();
+            return Ok(new
+            {
+                status = 1,
+                message = "Course added successfully"
+            });
+        }
+
+        private IActionResult validation(CourseRequest request)
+        {
+            if (string.IsNullOrEmpty(request.course_name))
+            {
+                return Ok(new
+                {
+                    status = 0,
+                    message = "Course Name is Required"
+                });
+            }
+            return null;
+        }
+    }
+}

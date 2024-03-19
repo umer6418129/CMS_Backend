@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "D:\\aptech asignment\\dotNet\\CMS_Backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Migrations\\20240319174457_addDescriptionAndIsAvalaibleIntoCourse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CMS_Backend\\Migrations\\20240319174457_addDescriptionAndIsAvalaibleIntoCourse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\models\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\controllers\\contactuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\controllers\\contactuscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\requests\\feedbackrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\requests\\feedbackrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\requests\\courserequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\requests\\courserequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +30,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FeedBackRequest.cs",
-              "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Requests\\FeedBackRequest.cs",
-              "RelativeDocumentMoniker": "CMS_Backend\\Requests\\FeedBackRequest.cs",
-              "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Requests\\FeedBackRequest.cs",
-              "RelativeToolTip": "CMS_Backend\\Requests\\FeedBackRequest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAnAAAA",
+              "DocumentIndex": 0,
+              "Title": "20240319174457_addDescriptionAndIsAvalaibleIntoCourse.cs",
+              "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Migrations\\20240319174457_addDescriptionAndIsAvalaibleIntoCourse.cs",
+              "RelativeDocumentMoniker": "CMS_Backend\\Migrations\\20240319174457_addDescriptionAndIsAvalaibleIntoCourse.cs",
+              "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Migrations\\20240319174457_addDescriptionAndIsAvalaibleIntoCourse.cs",
+              "RelativeToolTip": "CMS_Backend\\Migrations\\20240319174457_addDescriptionAndIsAvalaibleIntoCourse.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAQwBAAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-19T16:47:15.999Z",
+              "WhenOpened": "2024-03-19T17:44:57.325Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ContactUsController.cs",
-              "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Controllers\\ContactUsController.cs",
-              "RelativeDocumentMoniker": "CMS_Backend\\Controllers\\ContactUsController.cs",
-              "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Controllers\\ContactUsController.cs",
-              "RelativeToolTip": "CMS_Backend\\Controllers\\ContactUsController.cs",
-              "ViewState": "AQIAABcAAAAAAAAAAAAwwCkAAAAdAAAA",
+              "Title": "Course.cs",
+              "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Models\\Course.cs",
+              "RelativeDocumentMoniker": "CMS_Backend\\Models\\Course.cs",
+              "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Models\\Course.cs",
+              "RelativeToolTip": "CMS_Backend\\Models\\Course.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAxwAcAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-19T16:45:51.175Z",
+              "WhenOpened": "2024-03-19T17:37:01.775Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "FeedBackController.cs",
               "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Controllers\\FeedBackController.cs",
               "RelativeDocumentMoniker": "CMS_Backend\\Controllers\\FeedBackController.cs",
               "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Controllers\\FeedBackController.cs",
               "RelativeToolTip": "CMS_Backend\\Controllers\\FeedBackController.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAowB0AAAAOAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAAowB8AAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-19T16:44:52.188Z",
+              "WhenOpened": "2024-03-19T17:39:26.613Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CourseRequest.cs",
+              "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Requests\\CourseRequest.cs",
+              "RelativeDocumentMoniker": "CMS_Backend\\Requests\\CourseRequest.cs",
+              "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Requests\\CourseRequest.cs",
+              "RelativeToolTip": "CMS_Backend\\Requests\\CourseRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-19T17:38:20.11Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CoursesController.cs",
+              "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Controllers\\CoursesController.cs",
+              "RelativeDocumentMoniker": "CMS_Backend\\Controllers\\CoursesController.cs",
+              "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Controllers\\CoursesController.cs",
+              "RelativeToolTip": "CMS_Backend\\Controllers\\CoursesController.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAcwBYAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-19T17:36:05.576Z",
               "EditorCaption": ""
             }
           ]
