@@ -1,4 +1,6 @@
-﻿namespace CMS_Backend.Requests
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CMS_Backend.Requests
 {
     public class ContactUsRequest
     {

@@ -25,6 +25,12 @@ namespace CMS_Backend.Controllers
         [HttpPost]
         public IActionResult postMessage(ContactUsRequest contactUsRequest)
         {
+            IActionResult validationResponse = validation(contactUsRequest);
+            if (validationResponse != null)
+            {
+                return validationResponse;
+            }
+
             var contactUs = new ContactUs
             {
                 email = contactUsRequest.email,
@@ -68,6 +74,37 @@ namespace CMS_Backend.Controllers
                 status = 1,
                 message = "Message has been deleted"
             });
+        }
+
+        private IActionResult validation(ContactUsRequest contactUsRequest)
+        {
+            if (string.IsNullOrEmpty(contactUsRequest.email))
+            {
+                return Ok(new
+                {
+                    status = 0,
+                    message = "Email is Required"
+                });
+            }
+            else if (string.IsNullOrEmpty(contactUsRequest.full_name))
+            {
+                return Ok(new
+                {
+                    status = 0,
+                    message = "Name is Required"
+                });
+
+            }
+            else if (string.IsNullOrEmpty(contactUsRequest.subject))
+            {
+                return Ok(new
+                {
+                    status = 0,
+                    message = "Subject is Required"
+                });
+
+            }
+            return null;
         }
     }
 }
