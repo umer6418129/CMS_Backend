@@ -15,6 +15,17 @@ namespace CMS_Backend.Controllers
             db = context;
         }
 
+        [HttpGet]
+        public IActionResult getCourses()
+        {
+            var courses = db.Courses.OrderByDescending(x => x.id).ToArray();
+            return Ok(new
+            {
+                status = 1,
+                data = courses
+            });
+        }
+
         [HttpPost]
         public IActionResult createCourse(CourseRequest request)
         {
