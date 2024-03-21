@@ -6,7 +6,9 @@ namespace CMS_Backend.Requests
 {
     public class FeedBackRequest
     {
+        public int id { get; set; }
         public int std_id { get; set; }
+        public int? courseId { get; set; }
         public string? description { get; set; }
 
     }

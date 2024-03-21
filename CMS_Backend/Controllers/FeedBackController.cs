@@ -14,6 +14,24 @@ namespace CMS_Backend.Controllers
         {
             db = context;
         }
+        [HttpGet]
+        public IActionResult Get()
+        {
+            try
+            {
+                var feedback = db.Feedbacks.OrderByDescending(x => x.id).ToArray();
+                return Ok(new
+                {
+                    status = 1,
+                    data = feedback,
+                });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         [HttpPost]
 
         public IActionResult createFeedback(FeedBackRequest request)
@@ -23,8 +41,18 @@ namespace CMS_Backend.Controllers
             {
                 return validationResponse;
             }
+            var course = db.Courses.Where(x => x.id == request.courseId).FirstOrDefault();
+            if (course == null)
+            {
+                return Ok(new
+                {
+                    status = 0,
+                    message = "course not found"
+                });
+            }
             var feedback = new StudentFeedback
             {
+                courseId = request.courseId,
                 std_id = request.std_id,
                 description = request.description,
             };
@@ -35,6 +63,35 @@ namespace CMS_Backend.Controllers
                 status = 1,
                 message = "Feedback added successfully"
             });
+        }
+
+        [HttpDelete]
+        public IActionResult deleteFeedback(int id)
+        {
+            try
+            {
+                var feedback = db.Feedbacks.FirstOrDefault(x => x.id == id);
+                if (feedback == null)
+                {
+                    return Ok(new
+                    {
+                        status = 0,
+                        message = "feedback not found",
+                    });
+                }
+                db.Feedbacks.Remove(feedback);
+                db.SaveChanges();
+                return Ok(new
+                {
+                    status = 1,
+                    message = "feedback has deleted",
+                });
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private IActionResult validation(FeedBackRequest request)
@@ -66,7 +123,7 @@ namespace CMS_Backend.Controllers
                 return Ok(new
                 {
                     status = 0,
-                    message = "Email is Required"
+                    message = "Student is Required"
                 });
             }
             else if (string.IsNullOrEmpty(request.description))
@@ -74,7 +131,16 @@ namespace CMS_Backend.Controllers
                 return Ok(new
                 {
                     status = 0,
-                    message = "Name is Required"
+                    message = "description is Required"
+                });
+
+            }
+            else if (string.IsNullOrEmpty(Convert.ToString(request.courseId)))
+            {
+                return Ok(new
+                {
+                    status = 0,
+                    message = "courseId is Required"
                 });
 
             }

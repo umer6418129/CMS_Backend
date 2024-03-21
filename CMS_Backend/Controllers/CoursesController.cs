@@ -47,6 +47,34 @@ namespace CMS_Backend.Controllers
             });
         }
 
+        [HttpPut]
+        public IActionResult updateCourse(CourseRequest request)
+        {
+            IActionResult validationResponse = validation(request);
+            if (validationResponse != null)
+            {
+                return validationResponse;
+            }
+            var courseToUpdate = db.Courses.FirstOrDefault(x => x.id == request.id);
+            if (courseToUpdate == null)
+            {
+                return Ok(new{
+                    status = 0,
+                    message = "Course not found",
+                });
+            }
+
+            courseToUpdate.course_name = request.course_name;
+
+            db.SaveChanges();
+
+            return Ok(new
+            {
+                status = 1,
+                message = "Course updated successfully"
+            });
+        }
+
         private IActionResult validation(CourseRequest request)
         {
             if (string.IsNullOrEmpty(request.course_name))
