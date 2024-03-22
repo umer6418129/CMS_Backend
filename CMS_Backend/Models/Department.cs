@@ -9,5 +9,7 @@ namespace CMS_Backend.Models
         [Required]
         [StringLength(100)]
         public string name { get; set; }
+
+        public bool is_active { get; set; } = true;
     }
 }

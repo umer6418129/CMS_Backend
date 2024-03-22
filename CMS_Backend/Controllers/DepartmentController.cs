@@ -93,6 +93,7 @@ namespace CMS_Backend.Controllers
 
             }
             department.name = request.name;
+            department.is_active = request.is_active == false ? false : true;
             db.SaveChanges();
             return Ok(new
             {
