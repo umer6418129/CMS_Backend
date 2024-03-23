@@ -9,7 +9,7 @@ namespace CMS_Backend.Models
         public int id { get; set; }
         public string? name { get; set; }
         public bool? is_active { get; set; } = true;
-        public ICollection<CourseSubjects> CourseSubjects { get; set; }
+        //public ICollection<CourseSubjects> CourseSubjects { get; set; }
 
     }
 }

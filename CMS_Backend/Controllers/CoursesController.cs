@@ -65,17 +65,19 @@ namespace CMS_Backend.Controllers
                 course_name = request.course_name
             };
             db.Courses.Add(course);
+            db.SaveChanges();
 
             foreach (var item in request.subject_ids)
             {
-                var subject = db.CourseSubjects.FirstOrDefault(x => x.id == item);
+                var subject = db.Subjects.FirstOrDefault(x => x.id == item);
                 if (subject != null)
                 {
-                    var courseSubjectIds = new CourseSubjects[]
+                    var courseSubjectIds = new CourseSubjects
                     {
-                    new CourseSubjects {course_id = course.id,subject_id = item}
+                        course_id = course.id,
+                        subject_id = item
                     };
-                    db.CourseSubjects.AddRange(courseSubjectIds);
+                    db.CourseSubjects.Add(courseSubjectIds);
                 }
             }
             db.SaveChanges();
@@ -105,18 +107,27 @@ namespace CMS_Backend.Controllers
             }
 
             courseToUpdate.course_name = request.course_name;
+            courseToUpdate.is_available = request.is_available == true ? true : false;
+
+            // Remove existing CourseSubjects for the course
+            var existingCourseSubjects = db.CourseSubjects.Where(cs => cs.course_id == request.id);
+            db.CourseSubjects.RemoveRange(existingCourseSubjects);
+
+            // Add new CourseSubjects for the course
             foreach (var item in request.subject_ids)
             {
                 var subject = db.Subjects.FirstOrDefault(x => x.id == item);
                 if (subject != null)
                 {
-                    var courseSubjectIds = new CourseSubjects[]
+                    var courseSubject = new CourseSubjects
                     {
-                    new CourseSubjects {course_id = request.id,subject_id = item}
+                        course_id = request.id,
+                        subject_id = item
                     };
-                    db.CourseSubjects.AddRange(courseSubjectIds);
+                    db.CourseSubjects.Add(courseSubject);
                 }
             }
+
             db.SaveChanges();
 
             return Ok(new
@@ -125,6 +136,8 @@ namespace CMS_Backend.Controllers
                 message = "Course updated successfully"
             });
         }
+
+
 
         private IActionResult validation(CourseRequest request)
         {

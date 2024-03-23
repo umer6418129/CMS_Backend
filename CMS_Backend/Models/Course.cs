@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 
 namespace CMS_Backend.Models
@@ -14,7 +14,7 @@ namespace CMS_Backend.Models
         public string? description { get; set; }
         public bool is_available { get; set; } = true;
 
-        
+        [JsonIgnore]
         public ICollection<CourseSubjects> CourseSubjects { get; set; }
     }
 }
