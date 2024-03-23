@@ -18,7 +18,7 @@ namespace CMS_Backend.Controllers
         [HttpGet]
         public IActionResult getFaculties()
         {
-            var faculties = db.FacultyInfos.Include(x => x.user).Where(f => f.user.is_active == true).ToArray();
+            var faculties = db.FacultyInfos.Include(x => x.user).Include(x => x.facultyType).Where(f => f.user.is_active == true).Where(x => x.facultyType.is_active == true).ToArray();
             return Ok(new
             {
                 status = 1,
@@ -69,6 +69,7 @@ namespace CMS_Backend.Controllers
             {
                 department_id = request.department_id,
                 user_id = user.id,
+                faculty_type_id = request.type_id
             };
             db.FacultyInfos.Add(faculty);
             db.SaveChanges();
@@ -102,6 +103,7 @@ namespace CMS_Backend.Controllers
             user.email = request.email;
             user.name = request.name;
             faculty.department_id = request.department_id;
+            faculty.faculty_type_id = request.type_id;
             db.SaveChanges();
 
             return Ok(new
@@ -147,6 +149,15 @@ namespace CMS_Backend.Controllers
                 {
                     status = 0,
                     message = "Role is Required"
+                });
+
+            }
+            else if (string.IsNullOrEmpty(Convert.ToString(request.type_id)))
+            {
+                return Ok(new
+                {
+                    status = 0,
+                    message = "Type is Required"
                 });
 
             }

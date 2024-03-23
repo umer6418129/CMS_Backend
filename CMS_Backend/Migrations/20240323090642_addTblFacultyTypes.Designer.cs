@@ -4,6 +4,7 @@ using CMS_Backend.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CMS_Backend.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20240323090642_addTblFacultyTypes")]
+    partial class addTblFacultyTypes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -167,17 +170,12 @@ namespace CMS_Backend.Migrations
                     b.Property<int?>("department_id")
                         .HasColumnType("int");
 
-                    b.Property<int?>("faculty_type_id")
-                        .HasColumnType("int");
-
                     b.Property<int?>("user_id")
                         .HasColumnType("int");
 
                     b.HasKey("id");
 
                     b.HasIndex("department_id");
-
-                    b.HasIndex("faculty_type_id");
 
                     b.HasIndex("user_id");
 
@@ -191,9 +189,6 @@ namespace CMS_Backend.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
-
-                    b.Property<bool>("is_active")
-                        .HasColumnType("bit");
 
                     b.Property<string>("name")
                         .IsRequired()
@@ -335,17 +330,11 @@ namespace CMS_Backend.Migrations
                         .WithMany()
                         .HasForeignKey("department_id");
 
-                    b.HasOne("CMS_Backend.Models.FacultyType", "facultyType")
-                        .WithMany()
-                        .HasForeignKey("faculty_type_id");
-
                     b.HasOne("CMS_Backend.Models.User", "user")
                         .WithMany()
                         .HasForeignKey("user_id");
 
                     b.Navigation("department");
-
-                    b.Navigation("facultyType");
 
                     b.Navigation("user");
                 });

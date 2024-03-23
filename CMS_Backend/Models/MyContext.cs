@@ -13,14 +13,15 @@ namespace CMS_Backend.Models
         public virtual DbSet<College> Colleges { get; set; }
         public virtual DbSet<UserRoles> user_roles { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Course> Courses{ get; set; }
-        public virtual DbSet<StudentInfo> StudentInfos{ get; set; }
-        public virtual DbSet<CollegeFaciliteis> CollegeFaciliteis{ get; set; }
-        public virtual DbSet<ContactUs> ContactUs{ get; set; }
-        public virtual DbSet<StudentFeedback> Feedbacks{ get; set; }
+        public virtual DbSet<Course> Courses { get; set; }
+        public virtual DbSet<StudentInfo> StudentInfos { get; set; }
+        public virtual DbSet<CollegeFaciliteis> CollegeFaciliteis { get; set; }
+        public virtual DbSet<ContactUs> ContactUs { get; set; }
+        public virtual DbSet<StudentFeedback> Feedbacks { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
-        public virtual DbSet<FacultyInfo> FacultyInfos{ get; set; }
-        public virtual DbSet<Facilities> Facilities{ get; set; }
+        public virtual DbSet<FacultyInfo> FacultyInfos { get; set; }
+        public virtual DbSet<Facilities> Facilities { get; set; }
+        public virtual DbSet<FacultyType> FacultyTypes { get; set; }
 
 
 
@@ -73,6 +74,18 @@ namespace CMS_Backend.Models
                     Users.AddRange(user);
                     SaveChanges();
                 }
+            }
+
+            if (!FacultyTypes.Any())
+            {
+                var facultyType = new FacultyType[]
+                {
+                    new FacultyType { name = "professor",is_active = true},
+                    new FacultyType { name = "associate professor",is_active = true },
+                    new FacultyType { name = "assistant professor",is_active = true },
+                };
+                FacultyTypes.AddRange(facultyType);
+                SaveChanges();
             }
         }
     }
