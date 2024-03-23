@@ -1,5 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
 
 namespace CMS_Backend.Models
 {
@@ -11,5 +13,8 @@ namespace CMS_Backend.Models
         [Column(TypeName = "TEXT")]
         public string? description { get; set; }
         public bool is_available { get; set; } = true;
+
+        
+        public ICollection<CourseSubjects> CourseSubjects { get; set; }
     }
 }

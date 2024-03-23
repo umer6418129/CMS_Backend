@@ -9,6 +9,11 @@ namespace CMS_Backend.Models
     public class MyContext : DbContext
     {
         public MyContext(DbContextOptions<MyContext> options) : base(options) { }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<CourseSubjects>().HasKey(ps => new { ps.course_id, ps.subject_id});
+            base.OnModelCreating(builder);
+        }
 
         public virtual DbSet<College> Colleges { get; set; }
         public virtual DbSet<UserRoles> user_roles { get; set; }
@@ -23,7 +28,7 @@ namespace CMS_Backend.Models
         public virtual DbSet<Facilities> Facilities { get; set; }
         public virtual DbSet<FacultyType> FacultyTypes { get; set; }
         public virtual DbSet<Subjects> Subjects { get; set; }
-
+        public virtual DbSet<CourseSubjects> CourseSubjects { get; set; }
 
 
 
