@@ -1,91 +1,92 @@
-﻿using CMS_Backend.Requests;
+﻿using CMS_Backend.Models;
+using CMS_Backend.Requests;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CMS_Backend.Models
+namespace CMS_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FacultyTypeController : ControllerBase
+    public class SubjectsController : ControllerBase
     {
         public MyContext db { get; set; }
-        public FacultyTypeController(MyContext context)
+        public SubjectsController(MyContext context)
         {
             db = context;
         }
 
         [HttpGet]
-        public IActionResult get()
+        public IActionResult Get()
         {
-            var type = db.FacultyTypes.OrderByDescending(x => x.id).ToArray();
+            var subjects = db.Subjects.OrderByDescending(x => x.id).ToArray();
             return Ok(new
             {
                 status = 1,
-                data = type
+                data = subjects
             });
         }
-
         [HttpGet("{id}")]
-        public IActionResult get(int id)
+        public IActionResult Get(int id)
         {
-            var type = db.FacultyTypes.Where(x => x.id == id).FirstOrDefault();
+            var subject = db.Subjects.Where(x => x.id == id).FirstOrDefault();
             return Ok(new
             {
                 status = 1,
-                data = type
+                data = subject
             });
         }
 
         [HttpPost]
-        public IActionResult create(FacultyTypeRequest request)
+        public IActionResult create(SubjectRequest request)
         {
             IActionResult validationResponse = validation(request);
             if (validationResponse != null)
             {
                 return validationResponse;
             }
-            var type = new FacultyType
+            var subject = new Subjects
             {
                 name = request.name,
                 is_active = true,
             };
-            db.FacultyTypes.Add(type);
+            db.Subjects.Add(subject);
             db.SaveChanges();
             return Ok(new
             {
                 status = 1,
-                message = "Faculty type has successfully added"
+                message = "SUbject has successfully added"
             });
         }
+
         [HttpPut]
-        public IActionResult update(FacultyTypeRequest request)
+        public IActionResult update(SubjectRequest request)
         {
             IActionResult validationResponse = validation(request);
             if (validationResponse != null)
             {
                 return validationResponse;
             }
-            var type = db.FacultyTypes.FirstOrDefault(x => x.id == request.id);
-            if (type == null)
+            var subject = db.Subjects.FirstOrDefault(x => x.id == request.id);
+            if (subject == null)
             {
                 return Ok(new
                 {
                     status = 0,
-                    message = "Faculty type not found",
+                    message = "Subject not found",
                 });
             }
 
-            type.name = request.name;
-            type.is_active = request.is_active == true ? true : false;
+            subject.name = request.name;
+            subject.is_active = request.is_active == true ? true : false;
             db.SaveChanges();
             return Ok(new
             {
                 status = 1,
-                message = "Faculty type updated successfully",
+                message = "Subject updated successfully",
             });
         }
 
-        private IActionResult validation(FacultyTypeRequest request)
+        private IActionResult validation(SubjectRequest request)
         {
             if (string.IsNullOrEmpty(request.name))
             {
@@ -97,5 +98,6 @@ namespace CMS_Backend.Models
             }
             return null;
         }
+
     }
 }
