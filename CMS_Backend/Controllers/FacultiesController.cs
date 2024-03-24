@@ -1,4 +1,5 @@
-﻿using CMS_Backend.Models;
+﻿using CMS_Backend.Helpers;
+using CMS_Backend.Models;
 using CMS_Backend.Requests;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,9 +12,11 @@ namespace CMS_Backend.Controllers
     public class FacultiesController : ControllerBase
     {
         public MyContext db { get; set; }
-        public FacultiesController(MyContext context)
+        public IWebHostEnvironment _hostingEnvironment { get; set; }
+        public FacultiesController(MyContext context, IWebHostEnvironment hostingEnvironment)
         {
             db = context;
+            _hostingEnvironment = hostingEnvironment;
         }
         [HttpGet]
         public IActionResult getFaculties()
@@ -74,9 +77,21 @@ namespace CMS_Backend.Controllers
             db.FacultyInfos.Add(faculty);
             db.SaveChanges();
 
+            //if (request.profile_image != null)
+            //{
+            //}
+            string relativePath = FileManagerHelper.Upload(Path.Combine(AppDomain.CurrentDomain.BaseDirectory), FileDirectoryHelper.facultyProfile, request.profile_image, user.id, db);
+
+            // Replace backslashes with forward slashes in the relative path
+            relativePath = relativePath.Replace("\\", "/");
+
+            // Construct the full URL using the base URL of your API
+            string baseUrl = "https://localhost:7109/"; // Update this with your actual base URL
+            string fullUrl = baseUrl + relativePath;
             return Ok(new
             {
                 status = 1,
+                path = fullUrl,
                 message = "Faculty added successfully"
             });
         }
@@ -143,15 +158,15 @@ namespace CMS_Backend.Controllers
                 });
 
             }
-            else if (string.IsNullOrEmpty(Convert.ToString(request.role_id)))
-            {
-                return Ok(new
-                {
-                    status = 0,
-                    message = "Role is Required"
-                });
+            //else if (string.IsNullOrEmpty(Convert.ToString(request.role_id)))
+            //{
+            //    return Ok(new
+            //    {
+            //        status = 0,
+            //        message = "Role is Required"
+            //    });
 
-            }
+            //}
             else if (string.IsNullOrEmpty(Convert.ToString(request.type_id)))
             {
                 return Ok(new

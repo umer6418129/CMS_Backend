@@ -7,8 +7,10 @@ namespace CMS_Backend.Requests
         public int id { get; set; }
         public string name { get; set; }
         public string email { get; set; }
-        public int? role_id { get; set; }
+        //public int? role_id { get; set; }
         public int? department_id { get; set; }
         public int? type_id { get; set; }
+
+        public IFormFile? profile_image { get; set; }
     }
 }
