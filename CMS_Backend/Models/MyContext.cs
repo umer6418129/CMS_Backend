@@ -24,6 +24,7 @@ namespace CMS_Backend.Models
         public virtual DbSet<FacultyType> FacultyTypes { get; set; }
         public virtual DbSet<Subjects> Subjects { get; set; }
         public virtual DbSet<CourseSubjects> CourseSubjects { get; set; }
+        public virtual DbSet<FileRepo> FileRepos { get; set; }
 
 
 
