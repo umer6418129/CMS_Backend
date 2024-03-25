@@ -35,7 +35,7 @@ namespace CMS_Backend.Helpers
 
             var fileRepo = new FileRepo
             {
-                file_name = imagename,
+                file_name = relativePath + "/" + imagename,
                 tbl_name = relativePath,
                 rowId = dataId
             };
@@ -48,28 +48,43 @@ namespace CMS_Backend.Helpers
         }
 
 
-        public void Update(string host, string path, IFormFile file, int dataId)
+        public static void Update(string host, string path, IFormFile file, int dataId, MyContext dbContext,bool isSingleupload = true)
         {
             // Find the existing file record in the database
-            var existingFile = _dbContext.FileRepos.FirstOrDefault(f => f.tbl_name == path && f.rowId == dataId);
-            if (existingFile == null)
+            var existingFile = dbContext.FileRepos.FirstOrDefault(f => f.tbl_name == path && f.rowId == dataId);
+            if (existingFile != null)
             {
-                throw new Exception("File record not found.");
+                string filePath = Path.Combine(host, path, existingFile.file_name);
+                if (File.Exists(filePath) && isSingleupload == true )
+                {
+                    File.Delete(filePath);
+                }
+
+                // Upload the new file
+                string folderPath = Path.Combine(host, path);
+
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
+
+                string imagename = Guid.NewGuid().ToString() + "_" + file.FileName;
+                string uploadfilePath = Path.Combine(folderPath, imagename);
+
+                using (var stream = new FileStream(uploadfilePath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+
+                existingFile.file_name = path + "/" + imagename;
+                dbContext.SaveChanges();
+                Path.Combine(path, imagename);
+            }
+            else
+            {
+                Upload(host, path, file, dataId, dbContext);
             }
 
-            // Delete the existing file from the file system
-            string filePath = Path.Combine(host, path, existingFile.file_name);
-            if (File.Exists(filePath))
-            {
-                File.Delete(filePath);
-            }
-
-            // Upload the new file
-            Upload(host, path, file, dataId, _dbContext);
-
-
-            existingFile.file_name = filePath;
-            _dbContext.SaveChanges();
         }
 
         public void Delete(string host, string path, int dataId)

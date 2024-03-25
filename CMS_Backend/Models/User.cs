@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace CMS_Backend.Models
 {
@@ -26,7 +27,6 @@ namespace CMS_Backend.Models
         
         [ForeignKey("role_id")]
         public UserRoles? user_roles { get; set; }
-
 
 
 

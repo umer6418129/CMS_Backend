@@ -21,12 +21,28 @@ namespace CMS_Backend.Controllers
         [HttpGet]
         public IActionResult getFaculties()
         {
-            var faculties = db.FacultyInfos.Include(x => x.user).Include(x => x.facultyType).Where(f => f.user.is_active == true).Where(x => x.facultyType.is_active == true).ToArray();
+            var faculties = db.FacultyInfos.Include(x => x.user).Include(x => x.facultyType).Where(f => f.user.is_active == true && f.facultyType.is_active == true).Select(u => new
+            {
+                id = u.id,
+                userId = u.user.id,
+                name = u.user.name,
+                email = u.user.email,
+                department_id = u.department_id,
+                faculty_type_id = u.faculty_type_id,
+                department = u.department.name,
+                type = u.facultyType.name,
+                profile_image = db.FileRepos.Where(p => p.tbl_name == "faculty-profile" && p.rowId == u.user.id).Select(p => new
+                {
+                    path = p.file_name,
+                }).FirstOrDefault()
+            }).ToArray();
+
             return Ok(new
             {
                 status = 1,
                 data = faculties
             });
+
         }
 
         [HttpGet("{id}")]
@@ -77,21 +93,13 @@ namespace CMS_Backend.Controllers
             db.FacultyInfos.Add(faculty);
             db.SaveChanges();
 
-            //if (request.profile_image != null)
-            //{
-            //}
-            string relativePath = FileManagerHelper.Upload(Path.Combine(AppDomain.CurrentDomain.BaseDirectory), FileDirectoryHelper.facultyProfile, request.profile_image, user.id, db);
-
-            // Replace backslashes with forward slashes in the relative path
-            relativePath = relativePath.Replace("\\", "/");
-
-            // Construct the full URL using the base URL of your API
-            string baseUrl = "https://localhost:7109/"; // Update this with your actual base URL
-            string fullUrl = baseUrl + relativePath;
+            if (request.profile_image != null)
+            {
+                string relativePath = FileManagerHelper.Upload(Path.Combine(Directory.GetCurrentDirectory(), "Resources", "files"), FileDirectoryHelper.facultyProfile, request.profile_image, user.id, db);
+            }
             return Ok(new
             {
                 status = 1,
-                path = fullUrl,
                 message = "Faculty added successfully"
             });
         }
@@ -120,6 +128,10 @@ namespace CMS_Backend.Controllers
             faculty.department_id = request.department_id;
             faculty.faculty_type_id = request.type_id;
             db.SaveChanges();
+            if (request.profile_image != null)
+            {
+                FileManagerHelper.Update(Path.Combine(Directory.GetCurrentDirectory(), "Resources", "files"), FileDirectoryHelper.facultyProfile, request.profile_image, user.id, db);
+            }
 
             return Ok(new
             {

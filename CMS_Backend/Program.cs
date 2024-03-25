@@ -1,6 +1,7 @@
 using CMS_Backend.Middlewares;
 using CMS_Backend.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MyContext>(options =>
@@ -30,6 +31,21 @@ using (var scope = app.Services.CreateScope())
         logger.LogError(ex, "An error occurred while seeding the database.");
     }
 }
+// Check and create directory if it doesn't exist
+string resourceDirectory = Path.Combine(Directory.GetCurrentDirectory(), @"Resources/files");
+if (!Directory.Exists(resourceDirectory))
+{
+    Directory.CreateDirectory(resourceDirectory);
+}
+
+// Set up static file serving
+app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions()
+{
+    FileProvider = new PhysicalFileProvider(resourceDirectory),
+    RequestPath = new PathString("/Resources/files")
+});
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
