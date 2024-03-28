@@ -11,6 +11,7 @@ namespace CMS_Backend.Models
         public string email { get; set; }
         public string subject { get; set; }
         [Column(TypeName = "TEXT")]
+        public string phone { get; set; }
         public string description { get; set; }
         //public int? collegeId { get; set; }
 

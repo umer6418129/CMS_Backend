@@ -31,10 +31,7 @@ namespace CMS_Backend.Controllers
                 faculty_type_id = u.faculty_type_id,
                 department = u.department.name,
                 type = u.facultyType.name,
-                profile_image = db.FileRepos.Where(p => p.tbl_name == "faculty-profile" && p.rowId == u.user.id).Select(p => new
-                {
-                    path = p.file_name,
-                }).FirstOrDefault()
+                profile_image = db.FileRepos.Where(p => p.tbl_name == FileDirectoryHelper.facultyProfile && p.rowId == u.user.id).Select(p => p.file_name).FirstOrDefault()
             }).ToArray();
 
             return Ok(new

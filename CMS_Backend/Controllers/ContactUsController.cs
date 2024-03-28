@@ -36,6 +36,7 @@ namespace CMS_Backend.Controllers
                 email = contactUsRequest.email,
                 full_name = contactUsRequest.full_name,
                 subject = contactUsRequest.subject,
+                phone = contactUsRequest.phone,
                 description = contactUsRequest.description,
             };
             db.ContactUs.Add(contactUs);

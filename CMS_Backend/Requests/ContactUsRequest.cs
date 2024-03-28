@@ -7,6 +7,7 @@ namespace CMS_Backend.Requests
         public string full_name { get; set; }
         public string email { get; set; }
         public string subject { get; set; }
+        public string phone { get; set; }
         public string description { get; set; }
     }
 }
