@@ -181,6 +181,9 @@ namespace CMS_Backend.Controllers
                             course_name = c.course_name,
                             description = c.description,
                             is_available = c.is_available,
+                            displayImage = db.FileRepos.Where(p => p.tbl_name == FileDirectoryHelper.course && p.rowId == c.id).Select(p => p.file_name).FirstOrDefault(),
+                            ReviewsCount = db.Feedbacks.Where(x => x.courseId == c.id).Count(),
+                            stdCount = db.StudentInfos.Where(x => x.course_id == c.id).Count(),
                             subjects = c.CourseSubjects
                                         .Select(cs => new
                                         {
@@ -231,6 +234,7 @@ namespace CMS_Backend.Controllers
             }
 
             course.is_featured = featuredCourseRequest.is_featured;
+            db.SaveChanges();
             return Ok(new
             {
                 status = 1,
