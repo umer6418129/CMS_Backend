@@ -3,6 +3,7 @@ using CMS_Backend.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MyContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DbConfig")));
@@ -12,7 +13,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddCors(options => options.AddPolicy("MyCors", policy =>
+{
+    policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+}));
 var app = builder.Build();
 
 //seed mandatory data
@@ -55,9 +59,9 @@ if (app.Environment.IsDevelopment())
 }
 //app.UseMiddleware<CollegeIdMiddleware>();
 app.UseHttpsRedirection();
-
+app.UseRouting();
+app.UseCors("MyCors");
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
