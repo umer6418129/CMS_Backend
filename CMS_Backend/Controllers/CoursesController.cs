@@ -1,4 +1,5 @@
-﻿using CMS_Backend.Models;
+﻿using CMS_Backend.Helpers;
+using CMS_Backend.Models;
 using CMS_Backend.Requests;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +30,7 @@ namespace CMS_Backend.Controllers
                             course_name = c.course_name,
                             description = c.description,
                             is_available = c.is_available,
+                            displayImage = db.FileRepos.Where(p => p.tbl_name == FileDirectoryHelper.course && p.rowId == c.id).Select(p => p.file_name).FirstOrDefault(),
                             subjects = c.CourseSubjects
                                         .Select(cs => new
                                         {
@@ -60,6 +62,14 @@ namespace CMS_Backend.Controllers
             {
                 return validationResponse;
             }
+            if (request.course_image == null)
+            {
+                return Ok(new
+                {
+                    status = 0,
+                    message = "Image is Required"
+                });
+            }
             var course = new Course
             {
                 course_name = request.course_name
@@ -81,6 +91,7 @@ namespace CMS_Backend.Controllers
                 }
             }
             db.SaveChanges();
+            FileManagerHelper.Upload(Path.Combine(Directory.GetCurrentDirectory(), "Resources", "files"), FileDirectoryHelper.course, request.course_image, course.id, db);
             return Ok(new
             {
                 status = 1,
@@ -130,6 +141,11 @@ namespace CMS_Backend.Controllers
 
             db.SaveChanges();
 
+            if (request.course_image != null)
+            {
+                FileManagerHelper.Update(Path.Combine(Directory.GetCurrentDirectory(), "Resources", "files"), FileDirectoryHelper.course, request.course_image, courseToUpdate.id, db);
+            }
+
             return Ok(new
             {
                 status = 1,
@@ -150,6 +166,77 @@ namespace CMS_Backend.Controllers
                 });
             }
             return null;
+        }
+
+        [HttpGet("featured")]
+        public IActionResult isFeatured()
+        {
+            try
+            {
+                var courses = db.Courses.Where(x => x.is_featured == true)
+                        .OrderByDescending(x => x.id)
+                        .Select(c => new
+                        {
+                            id = c.id,
+                            course_name = c.course_name,
+                            description = c.description,
+                            is_available = c.is_available,
+                            subjects = c.CourseSubjects
+                                        .Select(cs => new
+                                        {
+                                            id = cs.subjects.id,
+                                            name = cs.subjects.name,
+                                        })
+                                        .ToArray()
+                        })
+                        .ToArray();
+
+                return Ok(new
+                {
+                    status = 1,
+                    data = courses
+                });
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"An error occurred: {ex.Message}");
+            }
+        }
+
+        [HttpPost("featured")]
+        public IActionResult toogleFeatured(FeaturedCourseRequest featuredCourseRequest)
+        {
+            var course = db.Courses.FirstOrDefault(x => x.id == featuredCourseRequest.id);
+            if (course == null)
+            {
+                return Ok(new
+                {
+                    status = 0,
+                    message = "Course not found",
+                });
+            }
+
+            if (featuredCourseRequest.is_featured == false)
+            {
+                var courseCount = db.Courses.Where(x => x.is_featured == false).Count();
+                if (courseCount < 3)
+                {
+                    return Ok(new
+                    {
+                        status = 0,
+                        message = "Atleast 3 courses should be featured",
+                    });
+                }
+            }
+
+            course.is_featured = featuredCourseRequest.is_featured;
+            return Ok(new
+            {
+                status = 1,
+                message = "Course featured successfully"
+            });
+
         }
     }
 }

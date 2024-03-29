@@ -7,5 +7,7 @@
         public string? description { get; set; }
         public bool is_available { get; set; }
         public int[] subject_ids { get; set; }
+
+        public IFormFile? course_image { get; set; }
     }
 }

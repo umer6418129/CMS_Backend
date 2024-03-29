@@ -13,6 +13,7 @@ namespace CMS_Backend.Models
         [Column(TypeName = "TEXT")]
         public string? description { get; set; }
         public bool is_available { get; set; } = true;
+        public bool? is_featured { get; set; }
 
         [JsonIgnore]
         public ICollection<CourseSubjects> CourseSubjects { get; set; }
