@@ -34,6 +34,7 @@ namespace CMS_Backend.Controllers
                             displayImage = db.FileRepos.Where(p => p.tbl_name == FileDirectoryHelper.course && p.rowId == c.id).Select(p => p.file_name).FirstOrDefault(),
                             ReviewsCount = db.Feedbacks.Where(x => x.courseId == c.id).Count(),
                             stdCount = db.StudentInfos.Where(x => x.course_id == c.id).Count(),
+                            category = db.CourseCategories.Where(x => x.id == c.category_id).Select(category => category.name).FirstOrDefault(),
                             subjects = c.CourseSubjects
                                         .Select(cs => new
                                         {
@@ -56,6 +57,33 @@ namespace CMS_Backend.Controllers
                 return StatusCode(500, $"An error occurred: {ex.Message}");
             }
         }
+        [HttpGet("{id}")]
+        public IActionResult getById(int id)
+        {
+            var course = db.Courses.Select(c => new
+            {
+                id = c.id,
+                course_name = c.course_name,
+                description = c.description,
+                is_available = c.is_available,
+                displayImage = db.FileRepos.Where(p => p.tbl_name == FileDirectoryHelper.course && p.rowId == c.id).Select(p => p.file_name).FirstOrDefault(),
+                reviewsCount = db.Feedbacks.Where(x => x.courseId == c.id).Count(),
+                stdCount = db.StudentInfos.Where(x => x.course_id == c.id).Count(),
+                category = db.CourseCategories.Where(x => x.id == c.category_id).Select(category => category.name).FirstOrDefault(),
+                subjects = c.CourseSubjects
+                                        .Select(cs => new
+                                        {
+                                            id = cs.subjects.id,
+                                            name = cs.subjects.name,
+                                        })
+                                        .ToArray()
+            }).FirstOrDefault(x => x.id == id);
+            return Ok(new
+            {
+                status = 1,
+                data = course
+            });
+        }
 
         [HttpPost]
         public IActionResult createCourse(CourseRequest request)
@@ -75,7 +103,9 @@ namespace CMS_Backend.Controllers
             }
             var course = new Course
             {
-                course_name = request.course_name
+                course_name = request.course_name,
+                description = request.description,
+                category_id = request.category_id,
             };
             db.Courses.Add(course);
             db.SaveChanges();
@@ -122,6 +152,8 @@ namespace CMS_Backend.Controllers
 
             courseToUpdate.course_name = request.course_name;
             courseToUpdate.is_available = request.is_available == true ? true : false;
+            courseToUpdate.description = request.description;
+            courseToUpdate.category_id = request.category_id;
 
             // Remove existing CourseSubjects for the course
             var existingCourseSubjects = db.CourseSubjects.Where(cs => cs.course_id == request.id);
