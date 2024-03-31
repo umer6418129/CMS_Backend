@@ -25,6 +25,7 @@ namespace CMS_Backend.Models
         public virtual DbSet<Subjects> Subjects { get; set; }
         public virtual DbSet<CourseSubjects> CourseSubjects { get; set; }
         public virtual DbSet<FileRepo> FileRepos { get; set; }
+        public virtual DbSet<CourseCategory> CourseCategories { get; set; }
 
 
 
@@ -87,6 +88,17 @@ namespace CMS_Backend.Models
                     new FacultyType { name = "assistant professor",is_active = true },
                 };
                 FacultyTypes.AddRange(facultyType);
+                SaveChanges();
+            }
+            if (!CourseCategories.Any())
+            {
+                var CourseCategory = new CourseCategory[]
+                {
+                    new CourseCategory { name = "Sceince & Technology",is_active = true},
+                    new CourseCategory { name = "Commerce",is_active = true },
+                    new CourseCategory { name = "Arts",is_active = true },
+                };
+                CourseCategories.AddRange(CourseCategory);
                 SaveChanges();
             }
         }

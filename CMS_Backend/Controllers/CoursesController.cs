@@ -4,6 +4,7 @@ using CMS_Backend.Requests;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace CMS_Backend.Controllers
 {
@@ -31,6 +32,8 @@ namespace CMS_Backend.Controllers
                             description = c.description,
                             is_available = c.is_available,
                             displayImage = db.FileRepos.Where(p => p.tbl_name == FileDirectoryHelper.course && p.rowId == c.id).Select(p => p.file_name).FirstOrDefault(),
+                            ReviewsCount = db.Feedbacks.Where(x => x.courseId == c.id).Count(),
+                            stdCount = db.StudentInfos.Where(x => x.course_id == c.id).Count(),
                             subjects = c.CourseSubjects
                                         .Select(cs => new
                                         {
@@ -163,6 +166,14 @@ namespace CMS_Backend.Controllers
                 {
                     status = 0,
                     message = "Course Name is Required"
+                });
+            }
+            else if (string.IsNullOrEmpty(Convert.ToString(request.category_id)))
+            {
+                return Ok(new
+                {
+                    status = 0,
+                    message = "Course Category is Required"
                 });
             }
             return null;
