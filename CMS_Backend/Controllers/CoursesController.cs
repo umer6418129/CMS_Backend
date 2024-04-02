@@ -70,12 +70,18 @@ namespace CMS_Backend.Controllers
                 no_of_classess = c.no_of_classes,
                 displayImage = db.FileRepos.Where(p => p.tbl_name == FileDirectoryHelper.course && p.rowId == c.id).Select(p => p.file_name).FirstOrDefault(),
                 reviewsCount = db.Feedbacks.Where(x => x.courseId == c.id).Count(),
+                reviews = db.Feedbacks.Where(x => x.courseId == c.id).ToArray(),
                 stdCount = db.StudentInfos.Where(x => x.course_id == c.id).Count(),
                 category = db.CourseCategories.Where(x => x.id == c.category_id).Select(category => category.name).FirstOrDefault(),
                 faculty = db.CourseFaculties.Select(fc => new
                 {
                     id = fc.faculty_id,
-                    name = fc.user.name
+                    faculty_info = db.FacultyInfos.Where(x => x.user_id == fc.faculty_id).Select(info => new
+                    {
+                        type = info.facultyType.name,
+                    }).FirstOrDefault(),
+                    name = fc.user.name,
+                    profile = db.FileRepos.Where(p => p.tbl_name == FileDirectoryHelper.facultyProfile && p.rowId == fc.faculty_id).Select(p => p.file_name).FirstOrDefault(),
                 }).ToArray(),
                 subjects = c.CourseSubjects.Select(cs => new
                 {

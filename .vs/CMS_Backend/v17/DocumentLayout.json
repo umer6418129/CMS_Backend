@@ -7,6 +7,26 @@
       "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\requests\\facultyrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\requests\\facultyrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\controllers\\facultiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\controllers\\facultiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\models\\coursefaculties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\models\\coursefaculties.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\models\\facultyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\models\\facultyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\requests\\courserequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\requests\\courserequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -18,8 +38,73 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CourseFaculties.cs",
+              "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Models\\CourseFaculties.cs",
+              "RelativeDocumentMoniker": "CMS_Backend\\Models\\CourseFaculties.cs",
+              "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Models\\CourseFaculties.cs",
+              "RelativeToolTip": "CMS_Backend\\Models\\CourseFaculties.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-02T16:48:22.784Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FacultiesController.cs",
+              "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Controllers\\FacultiesController.cs",
+              "RelativeDocumentMoniker": "CMS_Backend\\Controllers\\FacultiesController.cs",
+              "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Controllers\\FacultiesController.cs",
+              "RelativeToolTip": "CMS_Backend\\Controllers\\FacultiesController.cs",
+              "ViewState": "AQIAAF4AAAAAAAAAAAAmwG8AAABSAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-02T16:47:00.726Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FacultyRequest.cs",
+              "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Requests\\FacultyRequest.cs",
+              "RelativeDocumentMoniker": "CMS_Backend\\Requests\\FacultyRequest.cs",
+              "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Requests\\FacultyRequest.cs",
+              "RelativeToolTip": "CMS_Backend\\Requests\\FacultyRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-02T16:43:44.023Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Models\\User.cs",
+              "RelativeDocumentMoniker": "CMS_Backend\\Models\\User.cs",
+              "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Models\\User.cs",
+              "RelativeToolTip": "CMS_Backend\\Models\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-02T16:41:33.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FacultyInfo.cs",
+              "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Models\\FacultyInfo.cs",
+              "RelativeDocumentMoniker": "CMS_Backend\\Models\\FacultyInfo.cs",
+              "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Models\\FacultyInfo.cs",
+              "RelativeToolTip": "CMS_Backend\\Models\\FacultyInfo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-02T16:41:24.194Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -28,20 +113,20 @@
               "RelativeDocumentMoniker": "CMS_Backend\\Controllers\\CoursesController.cs",
               "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Controllers\\CoursesController.cs",
               "RelativeToolTip": "CMS_Backend\\Controllers\\CoursesController.cs",
-              "ViewState": "AQIAAEQAAAAAAAAAAAAiwFMAAAASAAAA",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAiwEgAAABQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-02T13:12:12.841Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "CourseRequest.cs",
               "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Requests\\CourseRequest.cs",
               "RelativeDocumentMoniker": "CMS_Backend\\Requests\\CourseRequest.cs",
               "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Requests\\CourseRequest.cs",
               "RelativeToolTip": "CMS_Backend\\Requests\\CourseRequest.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAvAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-02T13:08:45.25Z",
               "EditorCaption": ""
