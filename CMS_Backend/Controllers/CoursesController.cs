@@ -66,17 +66,22 @@ namespace CMS_Backend.Controllers
                 course_name = c.course_name,
                 description = c.description,
                 is_available = c.is_available,
+                duaration = c.course_duration,
+                no_of_classess = c.no_of_classes,
                 displayImage = db.FileRepos.Where(p => p.tbl_name == FileDirectoryHelper.course && p.rowId == c.id).Select(p => p.file_name).FirstOrDefault(),
                 reviewsCount = db.Feedbacks.Where(x => x.courseId == c.id).Count(),
                 stdCount = db.StudentInfos.Where(x => x.course_id == c.id).Count(),
                 category = db.CourseCategories.Where(x => x.id == c.category_id).Select(category => category.name).FirstOrDefault(),
-                subjects = c.CourseSubjects
-                                        .Select(cs => new
-                                        {
-                                            id = cs.subjects.id,
-                                            name = cs.subjects.name,
-                                        })
-                                        .ToArray()
+                faculty = db.CourseFaculties.Select(fc => new
+                {
+                    id = fc.faculty_id,
+                    name = fc.user.name
+                }).ToArray(),
+                subjects = c.CourseSubjects.Select(cs => new
+                {
+                    id = cs.subjects.id,
+                    name = cs.subjects.name,
+                }).ToArray()
             }).FirstOrDefault(x => x.id == id);
             return Ok(new
             {
@@ -106,6 +111,11 @@ namespace CMS_Backend.Controllers
                 course_name = request.course_name,
                 description = request.description,
                 category_id = request.category_id,
+                course_duration = request.course_duration,
+                no_of_classes = request.no_of_classes,
+                is_available = request.is_available == true ? true : false,
+                is_featured = false,
+
             };
             db.Courses.Add(course);
             db.SaveChanges();
@@ -121,6 +131,19 @@ namespace CMS_Backend.Controllers
                         subject_id = item
                     };
                     db.CourseSubjects.Add(courseSubjectIds);
+                }
+            }
+            foreach (var item in request.faculties_id)
+            {
+                var subject = db.Users.FirstOrDefault(x => x.id == item);
+                if (subject != null)
+                {
+                    var courseFacultyIds = new CourseFaculties
+                    {
+                        faculty_id = item,
+                        course_id = course.id,
+                    };
+                    db.CourseFaculties.Add(courseFacultyIds);
                 }
             }
             db.SaveChanges();
@@ -154,6 +177,10 @@ namespace CMS_Backend.Controllers
             courseToUpdate.is_available = request.is_available == true ? true : false;
             courseToUpdate.description = request.description;
             courseToUpdate.category_id = request.category_id;
+            courseToUpdate.no_of_classes = request.no_of_classes;
+            courseToUpdate.course_duration = request.course_duration;
+
+
 
             // Remove existing CourseSubjects for the course
             var existingCourseSubjects = db.CourseSubjects.Where(cs => cs.course_id == request.id);
@@ -171,6 +198,20 @@ namespace CMS_Backend.Controllers
                         subject_id = item
                     };
                     db.CourseSubjects.Add(courseSubject);
+                }
+            }
+
+            foreach (var item in request.faculties_id)
+            {
+                var subject = db.Users.FirstOrDefault(x => x.id == item);
+                if (subject != null)
+                {
+                    var courseFacultyIds = new CourseFaculties
+                    {
+                        faculty_id = item,
+                        course_id = request.id,
+                    };
+                    db.CourseFaculties.Add(courseFacultyIds);
                 }
             }
 
@@ -208,6 +249,39 @@ namespace CMS_Backend.Controllers
                     message = "Course Category is Required"
                 });
             }
+            else if (string.IsNullOrEmpty(request.description))
+            {
+                return Ok(new
+                {
+                    status = 0,
+                    message = "Description is Required"
+                });
+            }
+            else if (string.IsNullOrEmpty(request.course_duration))
+            {
+                return Ok(new
+                {
+                    status = 0,
+                    message = "Image is Required"
+                });
+            }
+            else if (request.subject_ids.Length < 1)
+            {
+                return Ok(new
+                {
+                    status = 0,
+                    message = "Atleast 1 subject is required"
+                });
+            }
+            else if (request.faculties_id.Length < 1)
+            {
+                return Ok(new
+                {
+                    status = 0,
+                    message = "Atleast 1 faculty is required"
+                });
+            }
+
             return null;
         }
 

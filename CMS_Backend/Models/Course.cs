@@ -15,6 +15,8 @@ namespace CMS_Backend.Models
         public bool is_available { get; set; } = true;
         public bool? is_featured { get; set; }
         public int? category_id { get; set; }
+        public int? no_of_classes { get; set; }
+        public string? course_duration { get; set; }
         [ForeignKey("category_id")]
         public CourseCategory CourseCategory { get; set; }
 

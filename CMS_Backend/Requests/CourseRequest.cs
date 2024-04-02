@@ -8,6 +8,9 @@
         public bool is_available { get; set; }
         public int? category_id { get; set; }
         public int[] subject_ids { get; set; }
+        public int[] faculties_id { get; set; }
+        public int? no_of_classes { get; set; }
+        public string? course_duration { get; set; }
 
         public IFormFile? course_image { get; set; }
     }
