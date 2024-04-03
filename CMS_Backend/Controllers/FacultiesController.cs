@@ -71,6 +71,15 @@ namespace CMS_Backend.Controllers
                     message = "Faculty role not found"
                 });
             }
+            if (request.profile_image == null)
+            {
+                return Ok(new
+                {
+                    status = 0,
+                    message = "Faculty profile is required"
+                });
+                
+            }
 
             var user = new User
             {

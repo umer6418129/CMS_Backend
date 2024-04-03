@@ -15,5 +15,6 @@ namespace CMS_Backend.Requests
         public string? std_residential_address { get; set; }
         public string std_permanent_address { get; set; }
         public int? course_id { get; set; }
+        public IFormFile? profile_image { get; set; }
     }
 }

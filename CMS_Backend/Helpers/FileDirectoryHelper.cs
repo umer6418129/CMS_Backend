@@ -3,6 +3,7 @@
     public class FileDirectoryHelper
     {
         public static string facultyProfile = "faculty-profile";
+        public static string studentProfile = "student-profile";
         public static string course = "course";
     }
 }

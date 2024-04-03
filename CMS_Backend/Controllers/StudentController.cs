@@ -38,7 +38,14 @@ namespace CMS_Backend.Controllers
             {
                 return validationResponse;
             }
-
+            if (request.profile_image == null)
+            {
+                return Ok(new
+                {
+                    status = 0,
+                    message = "Faculty profile is required"
+                });
+            }
             var role = db.user_roles.FirstOrDefault(x => x.name == "Student");
             var user = new User
             {
@@ -65,7 +72,10 @@ namespace CMS_Backend.Controllers
             };
             db.StudentInfos.Add(student);
             db.SaveChanges();
-
+            if (request.profile_image != null)
+            {
+                string relativePath = FileManagerHelper.Upload(Path.Combine(Directory.GetCurrentDirectory(), "Resources", "files"), FileDirectoryHelper.studentProfile, request.profile_image, user.id, db);
+            }
             return Ok(new
             {
                 status = 1,
