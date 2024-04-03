@@ -50,10 +50,19 @@ namespace CMS_Backend.Controllers
                     message = "course not found"
                 });
             }
+            var student = db.StudentInfos.Where(x => x.std_unique_id == request.std_id).FirstOrDefault();
+            if (student.course_id != request.courseId)
+            {
+                return Ok(new
+                {
+                    status = 0,
+                    message = "You are not allow to add feedback on this course"
+                });
+            }
             var feedback = new StudentFeedback
             {
                 courseId = request.courseId,
-                std_id = request.std_id,
+                std_id = student.user_id,
                 description = request.description,
             };
             db.Feedbacks.Add(feedback);
@@ -96,29 +105,17 @@ namespace CMS_Backend.Controllers
 
         private IActionResult validation(FeedBackRequest request)
         {
-            var user = db.Users.FirstOrDefault(x => x.id == request.std_id);
-            if (user != null)
-            {
-                var student = db.StudentInfos.FirstOrDefault(x => x.user_id == request.std_id);
-                if (student == null)
-                {
-                    return Ok(new
-                    {
-                        status = 0,
-                        message = "Student not found"
-                    });
-                }
-            }
-            else
+            var student = db.StudentInfos.Where(x => x.std_unique_id == request.std_id).FirstOrDefault();
+            var user = db.Users.FirstOrDefault(x => x.id == student.user_id);
+            if (student == null || user == null)
             {
                 return Ok(new
                 {
                     status = 0,
                     message = "Student not found"
                 });
-
             }
-            if (string.IsNullOrEmpty(Convert.ToString(request.std_id)))
+            if (string.IsNullOrEmpty(request.std_id))
             {
                 return Ok(new
                 {
