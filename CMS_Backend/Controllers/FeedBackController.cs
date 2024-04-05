@@ -51,6 +51,14 @@ namespace CMS_Backend.Controllers
                 });
             }
             var student = db.StudentInfos.Where(x => x.std_unique_id == request.std_id).FirstOrDefault();
+            if (student == null)
+            {
+                return Ok(new
+                {
+                    status = 0,
+                    message = "Student not found"
+                });
+            }
             if (student.course_id != request.courseId)
             {
                 return Ok(new
@@ -105,15 +113,26 @@ namespace CMS_Backend.Controllers
 
         private IActionResult validation(FeedBackRequest request)
         {
-            var student = db.StudentInfos.Where(x => x.std_unique_id == request.std_id).FirstOrDefault();
-            var user = db.Users.FirstOrDefault(x => x.id == student.user_id);
-            if (student == null || user == null)
+            var student = db.StudentInfos.FirstOrDefault(x => x.std_unique_id == request.std_id);
+            if (student == null)
             {
                 return Ok(new
                 {
                     status = 0,
                     message = "Student not found"
                 });
+            }
+            if (student != null)
+            {
+                var user = db.Users.FirstOrDefault(x => x.id == student.user_id);
+                if (user == null)
+                {
+                    return Ok(new
+                    {
+                        status = 0,
+                        message = "Student not found"
+                    });
+                }
             }
             if (string.IsNullOrEmpty(request.std_id))
             {
