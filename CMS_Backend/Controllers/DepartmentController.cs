@@ -1,4 +1,5 @@
-﻿using CMS_Backend.Models;
+﻿using CMS_Backend.Helpers;
+using CMS_Backend.Models;
 using CMS_Backend.Requests;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -39,7 +40,23 @@ namespace CMS_Backend.Controllers
         {
             try
             {
-                var departments = db.Departments.FirstOrDefault(x => x.id == id);
+                var departments = db.Departments.Select(x => new
+                {
+                    x.id,
+                    x.name,
+                    faculties = db.FacultyInfos.Where(f => f.department_id == x.id).Select(fucaltyDetails => new
+                    {
+                        fucaltyDetails.id,
+                        user = db.Users.Select(user => new
+                        {
+                            user.id,
+                            user.name,
+                            profile = db.FileRepos.Where(p => p.tbl_name == FileDirectoryHelper.facultyProfile && p.rowId == fucaltyDetails.user_id).Select(p => p.file_name).FirstOrDefault()
+                        }).FirstOrDefault(x => x.id == fucaltyDetails.user_id),
+                        type = db.FacultyTypes.FirstOrDefault(x => x.id == fucaltyDetails.faculty_type_id).name,
+                        
+                    }).ToArray(),
+                }).FirstOrDefault(x => x.id == id);
                 return Ok(new
                 {
                     status = 1,
