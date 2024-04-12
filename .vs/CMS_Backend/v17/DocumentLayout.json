@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "D:\\aptech asignment\\dotNet\\CMS_Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\controllers\\feedbackcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\helpers\\enumhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\helpers\\enumhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\helpers\\filedirectoryhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\helpers\\filedirectoryhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|d:\\aptech asignment\\dotnet\\cms_backend\\cms_backend\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D31EBED-C13C-4E7E-BBB4-84AA7F6FA18A}|CMS_Backend\\CMS_Backend.csproj|solutionrelative:cms_backend\\controllers\\studentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,55 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "EnumHelper.cs",
+              "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Helpers\\EnumHelper.cs",
+              "RelativeDocumentMoniker": "CMS_Backend\\Helpers\\EnumHelper.cs",
+              "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Helpers\\EnumHelper.cs",
+              "RelativeToolTip": "CMS_Backend\\Helpers\\EnumHelper.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-12T09:22:18.189Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "CoursesController.cs",
               "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Controllers\\CoursesController.cs",
               "RelativeDocumentMoniker": "CMS_Backend\\Controllers\\CoursesController.cs",
               "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Controllers\\CoursesController.cs",
               "RelativeToolTip": "CMS_Backend\\Controllers\\CoursesController.cs",
-              "ViewState": "AQIAABcAAAAAAAAAAAAwwCEAAACpAAAA",
+              "ViewState": "AQIAAC4BAAAAAAAAAAAAAEIBAAA9AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T18:12:22.321Z"
+              "WhenOpened": "2024-04-12T09:22:07.685Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "FeedBackController.cs",
-              "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Controllers\\FeedBackController.cs",
-              "RelativeDocumentMoniker": "CMS_Backend\\Controllers\\FeedBackController.cs",
-              "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Controllers\\FeedBackController.cs",
-              "RelativeToolTip": "CMS_Backend\\Controllers\\FeedBackController.cs",
-              "ViewState": "AQIAACkAAAAAAAAAAAAIwA0AAAAJAAAA",
+              "Title": "StudentController.cs",
+              "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Controllers\\StudentController.cs",
+              "RelativeDocumentMoniker": "CMS_Backend\\Controllers\\StudentController.cs",
+              "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Controllers\\StudentController.cs",
+              "RelativeToolTip": "CMS_Backend\\Controllers\\StudentController.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAIwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T18:12:14.964Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FileDirectoryHelper.cs",
-              "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Helpers\\FileDirectoryHelper.cs",
-              "RelativeDocumentMoniker": "CMS_Backend\\Helpers\\FileDirectoryHelper.cs",
-              "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Helpers\\FileDirectoryHelper.cs",
-              "RelativeToolTip": "CMS_Backend\\Helpers\\FileDirectoryHelper.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T18:12:02.41Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DepartmentController.cs",
-              "DocumentMoniker": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Controllers\\DepartmentController.cs",
-              "RelativeDocumentMoniker": "CMS_Backend\\Controllers\\DepartmentController.cs",
-              "ToolTip": "D:\\aptech asignment\\dotNet\\CMS_Backend\\CMS_Backend\\Controllers\\DepartmentController.cs",
-              "RelativeToolTip": "CMS_Backend\\Controllers\\DepartmentController.cs",
-              "ViewState": "AQIAACMAAAAAAAAAAAAwwDIAAABgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T18:00:57.268Z",
+              "WhenOpened": "2024-04-12T09:21:58.493Z",
               "EditorCaption": ""
             }
           ]

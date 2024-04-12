@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
+using static CMS_Backend.Helpers.EnumHelper;
 
 namespace CMS_Backend.Controllers
 {
@@ -33,7 +34,7 @@ namespace CMS_Backend.Controllers
                             is_available = c.is_available,
                             displayImage = db.FileRepos.Where(p => p.tbl_name == FileDirectoryHelper.course && p.rowId == c.id).Select(p => p.file_name).FirstOrDefault(),
                             ReviewsCount = db.Feedbacks.Where(x => x.courseId == c.id).Count(),
-                            stdCount = db.StudentInfos.Where(x => x.course_id == c.id).Count(),
+                            stdCount = db.StudentInfos.Where(x => x.course_id == c.id).Where(x => x.addmission_status == Status.Approved).Count(),
                             category = db.CourseCategories.Where(x => x.id == c.category_id).Select(category => category.name).FirstOrDefault(),
                             subjects = c.CourseSubjects
                                         .Select(cs => new
@@ -42,7 +43,7 @@ namespace CMS_Backend.Controllers
                                             name = cs.subjects.name,
                                         })
                                         .ToArray()
-                        })
+                        }).Where(x => x.is_available == true)
                         .ToArray();
 
                 return Ok(new
@@ -76,7 +77,7 @@ namespace CMS_Backend.Controllers
                     review = feedback.description,
                     profile = db.FileRepos.Where(p => p.tbl_name == FileDirectoryHelper.studentProfile && p.rowId == feedback.std_id).FirstOrDefault(),
                 }).ToArray(),
-                stdCount = db.StudentInfos.Where(x => x.course_id == c.id).Count(),
+                stdCount = db.StudentInfos.Where(x => x.course_id == c.id).Where(x => x.addmission_status == Status.Approved).Count(),
                 category = db.CourseCategories.Where(x => x.id == c.category_id).Select(category => category.name).FirstOrDefault(),
                 faculty = db.CourseFaculties.Select(fc => new
                 {
@@ -319,7 +320,7 @@ namespace CMS_Backend.Controllers
                                             name = cs.subjects.name,
                                         })
                                         .ToArray()
-                        })
+                        }).Where(x => x.is_available == true)
                         .ToArray();
 
                 return Ok(new
